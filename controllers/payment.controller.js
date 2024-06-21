@@ -1,6 +1,6 @@
 import razorpayInstance from "../utlis/Razorpay.js";
 import crypto from 'crypto';
-import { razopay_key_secret } from "../utlis/config.js";
+import { razopay_key_secret } from "../utlis/Config.js";
 
 const paymentController = {
     initiatePayment: async (req, res) => {
