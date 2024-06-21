@@ -3,7 +3,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import userRouter from './routes/user.route.js';
 import orderRouter from './routes/order.route.js';
-import { mongo_url, webport } from './utlis/config.js';
+import { mongo_url, webport } from './utlis/Config.js';
 import paymentRouter from './routes/payment.route.js';
 
 
