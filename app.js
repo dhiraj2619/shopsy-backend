@@ -20,7 +20,13 @@ const connect=async()=>{
 }
 
 
+
 app.use(express.json());
+
+app.get('/',(req,res)=>{
+  res.send(`<h1><center><b><i>Welcome to Shopsy E-commerce Server!</i></b></center></h1>`)
+})
+
 app.use('/api/user',userRouter);
 app.use('/api/orders',orderRouter);
 app.use('/api/payments',paymentRouter);
