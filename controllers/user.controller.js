@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import User from '../models/user.js';
-import { secret_key } from '../utlis/config.js';
+import User from '../models/user.model.js';
+import { secret_key } from '../utlis/Config.js';
 
 
 const UserController = {
