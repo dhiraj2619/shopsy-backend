@@ -49,10 +49,10 @@ const UserController = {
                 if(isPasswordMatch){
                     const token = jwt.sign({userId:user.id},secret_key);
                     res.header({"x-auth-token":token});
-                    res.send({message:'Login success',token:token,user:user});
+                    res.status(200).json({message:'Login success',token,user});
                 }
                 else{
-                    res.send({message:'Invalid Credentials'});
+                    res.status(400).json({message:'Invalid Credentials'});
                 }
             }
         } catch (error) {
