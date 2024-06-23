@@ -1,10 +1,10 @@
-
 import express from 'express';
 import mongoose from 'mongoose';
 import userRouter from './routes/user.route.js';
 import orderRouter from './routes/order.route.js';
 import { mongo_url, webport } from './utlis/Config.js';
 import paymentRouter from './routes/payment.route.js';
+import cors from 'cors';
 
 
 const app = express();
@@ -22,6 +22,7 @@ const connect=async()=>{
 
 
 app.use(express.json());
+app.use(cors());
 
 app.get('/',(req,res)=>{
   res.send(`<h1><center><b><i>Welcome to Shopsy E-commerce Server!</i></b></center></h1>`)
