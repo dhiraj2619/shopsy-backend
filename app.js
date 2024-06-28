@@ -5,6 +5,7 @@ import orderRouter from './routes/order.route.js';
 import { mongo_url, webport } from './utlis/Config.js';
 import paymentRouter from './routes/payment.route.js';
 import cors from 'cors';
+import productRouter from './routes/product.route.js';
 
 
 const app = express();
@@ -31,6 +32,7 @@ app.get('/',(req,res)=>{
 app.use('/api/user',userRouter);
 app.use('/api/orders',orderRouter);
 app.use('/api/payments',paymentRouter);
+app.use('/api/products',productRouter);
 
 
 app.listen(port,()=>{
