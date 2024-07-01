@@ -76,7 +76,7 @@ const UserController = {
             const user = await User.findById(userId).populate('cart.productId');
 
             if (!user) {
-                return res.status(404).json({ message: 'User not found' });
+                return res.status(404).json({ message: 'User not found'});
             }
             res.status(200).json(user.cart);
 
@@ -87,8 +87,9 @@ const UserController = {
     },
     addToCart: async (req, res) => {
         try {
-            const { userId, productId, quantity } = req.body;
+            const {productId, quantity } = req.body;
     
+            const userId = req.user.id;
             const user = await User.findById(userId);
             if (!user) {
                 return res.status(404).json({ message: "User not found" });
@@ -102,6 +103,7 @@ const UserController = {
             }
     
             await user.save();
+            await user.populate('cart.product').execPopulate();
             res.status(200).json({ message: "Product added to cart", cart: user.cart });
         } catch (error) {
             console.error("Error adding to cart:", error);
